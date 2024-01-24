@@ -36,19 +36,25 @@ def main():
     (low, high) = configure_range()
     secret = generate_secret(low, high)
 
+    number_guesses = 0
+
     while True:
         try:
             guess = get_guess()
             result = check_guess(guess, secret)
             print(result)
 
-            if result == correct:
-                break
+            number_guesses +=1 # inceasing number of guesses- increament line
+            
+                if result == correct:
+                    break
+                    print('Thanks for playing the game!')
 
-            print('Thanks for playing the game!')
         except ValueError:
             print("Please enter a valid integer")
-
-
+    print(f'Thanks for playing the game! the number of {number_guesses} guesses in total') # displays total number of guesses made
 if __name__ == '__main__':
     main()
+
+
+
